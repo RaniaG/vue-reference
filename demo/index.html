@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="vueApp">
+        <h1 v-once>{{title}}</h1>
+        <input type="text" v-on:input="changeTitle">
+        {{title}}
+        <a href="{{ link }}">Wrong link</a>
+        <a v-bind:href="link">right link</a>
+        <p v-html="htmlCode"></p>
+        <img v-bind:src="imgSrc" alt="">
+        <br>
+        <button v-on:click="inc">increment</button>
+        <p>{{counter}}</p>
+        <p v-on:mouseover="dec">Hover to decrement
+            <span v-on:mouseover.stop>Hover has no effect here</span>
+        </p>
+        <div>
+            <input type="text" v-on:keyup.enter="captureValue">
+            <span>{{inputVal}}</span>
+        </div>
+        <div :class="{'red-bg':!isBound, 'green-bg':isBound}">
+            <input type="checkbox" v-model="isBound"> {{isBoundVal()}}
+        </div>
+        <div>
+            <button v-on:click="inc('secondCounter')">Increment second Counter</button>
+            <button v-on:click="inc('thirdCounter')">Increment third Counter</button>
+            {{secondCounter}} | {{thirdCounter}}
+            {{secondCounterPrint()}}
+            {{thirdCounterPrint}}
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>

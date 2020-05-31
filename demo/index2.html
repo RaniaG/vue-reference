@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <template v-if="counter>0">
+            <p>
+                {{counter}}
+            </p>
+        </template>
+        <p v-if="counter>5">Is Greater than 5</p>
+        <p v-else>Is Less than 5</p>
+        <button @click="inc" ref="myButton">Increment</button>
+        <button @click="counter=0" v-show="counter>0">Reset</button>
+        <ul>
+            <li v-for="(fruit,i) in fruits">{{i+1}}- {{fruit}}</li>
+        </ul>
+        <ul>
+            <li v-for="(value,key,index) in numbers">
+                {{index}}-{{key}}:{{value}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="person in persons" :key="person.id">{{person.name}}</li>
+        </ul>
+    </div>
+</body>
+<script src="script2.js"></script>
+
+</html>
